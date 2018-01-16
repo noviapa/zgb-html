@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 50%;
+  font-size: 16px;
+  padding: 15px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 50%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: grey;
+}
+</style>
+</head>
+<body>
+<center>
+<h2>Nomer Pesan</h2>
+<h4>Cari Berdasarkan Nama<h4>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Nama</th>
+    <th style="width:40%;">No Pesan</th>
+  </tr>
+  <tr>
+    <td>Dita</td>
+	<td>11081990000</td>
+  </tr>
+  <tr>
+  <td>Najla </td>
+    <td>11081990001</td>
+  </tr>
+  <tr>
+	<td>Alesha</td>
+    <td>11081990003</td>
+  </tr>
+  <tr>
+	<td>Putri</td>
+    <td>11081990004</td>
+  </tr>
+  <tr>
+	<td>Azizah</td>
+    <td>11081990005</td>
+  </tr>
+  <tr>
+	<td>Isma Ayu</td>
+    <td>11081990006</td>
+  </tr>
+  <tr>
+	<td>Mirza Riandini</td>
+    <td>11081990007</td>
+  </tr>
+  <tr>
+	<td>Rani</td>
+    <td>11081990008</td>
+  </tr>
+</table>
+</center>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
